@@ -5,14 +5,17 @@
  */
 
 using Attributes;
+using Core.Services;
 using Modules.User.Models;
 
 namespace Modules.User;
 
 
 [Injectable(ServiceLifetime.Transient)]
-public class UserService
+public class UserService(RealmDatabaseService db)
 {
+    private readonly RealmDatabaseService _db = db;
+
     public async Task<UserDto?> FindOneById(string id)
     {
         var user = new UserDto

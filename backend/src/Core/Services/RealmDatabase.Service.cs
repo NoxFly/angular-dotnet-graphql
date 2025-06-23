@@ -32,8 +32,17 @@ public class RealmDatabaseService
 
     private RealmConfiguration GetConfig(AppSettings settings)
     {
+#if DEBUG
+        var dir = Path.Combine(AppContext.BaseDirectory, "data");
+#else
+        var dir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+#endif
+
         // Set the path to the Realm database file
-        var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "app.realm");
+        var path = Path.Combine(dir, "app.realm");
+
+        _logger.LogDebug("Realm database path: {0}", path);
+
         return new RealmConfiguration(path)
         {
             SchemaVersion = CurrentSchemaVersion,
