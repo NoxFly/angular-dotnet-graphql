@@ -1,9 +1,15 @@
+/**
+ * @copyright Dorian Thivolle
+ * @license MIT
+ * @see https://github.com/NoxFly/angular-dotnet-graphql
+ */
+
 using Attributes;
 using Core.Models;
 using Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Modules.User.Dto;
+using Modules.User.Models;
 
 namespace Modules.User;
 

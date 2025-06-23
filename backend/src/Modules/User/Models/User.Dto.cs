@@ -1,4 +1,10 @@
-namespace Modules.User.Dto;
+/**
+ * @copyright Dorian Thivolle
+ * @license MIT
+ * @see https://github.com/NoxFly/angular-dotnet-graphql
+ */
+
+namespace Modules.User.Models;
 
 #region Models
 

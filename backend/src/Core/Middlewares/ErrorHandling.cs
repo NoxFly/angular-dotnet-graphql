@@ -1,3 +1,9 @@
+/**
+ * @copyright Dorian Thivolle
+ * @license MIT
+ * @see https://github.com/NoxFly/angular-dotnet-graphql
+ */
+
 using Core.Helpers;
 using Core.Models;
 using Newtonsoft.Json;

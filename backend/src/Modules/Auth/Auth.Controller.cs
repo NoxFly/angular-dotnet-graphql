@@ -1,3 +1,9 @@
+/**
+ * @copyright Dorian Thivolle
+ * @license MIT
+ * @see https://github.com/NoxFly/angular-dotnet-graphql
+ */
+
 using Attributes;
 using Core.Models;
 using Microsoft.AspNetCore.Authorization;

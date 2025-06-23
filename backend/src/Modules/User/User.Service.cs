@@ -1,5 +1,11 @@
+/**
+ * @copyright Dorian Thivolle
+ * @license MIT
+ * @see https://github.com/NoxFly/angular-dotnet-graphql
+ */
+
 using Attributes;
-using Modules.User.Dto;
+using Modules.User.Models;
 
 namespace Modules.User;
 

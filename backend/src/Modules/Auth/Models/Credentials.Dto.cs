@@ -1,4 +1,10 @@
-using Modules.User.Dto;
+/**
+ * @copyright Dorian Thivolle
+ * @license MIT
+ * @see https://github.com/NoxFly/angular-dotnet-graphql
+ */
+
+using Modules.User.Models;
 
 namespace Modules.Auth.Dto;
 
