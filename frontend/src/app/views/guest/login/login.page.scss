@@ -1,0 +1,39 @@
+/**
+ * @copyright Dorian Thivolle
+ * @license MIT
+ * @see https://github.com/NoxFly/angular-dotnet-graphql
+ */
+
+:host {
+    display: block;
+    height: calc(100dvh - 50px);
+}
+
+#app-logo {
+    width: clamp(150px, 10vw, 300px);
+    height: auto;
+    margin: 50px auto;
+    object-fit: contain;
+    display: block;
+}
+
+article {
+    margin: 0 auto;
+    padding-top: 50px;
+    width: min(270px, 90vw);
+}
+
+.form-actions {
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+button[type="submit"] {
+    margin-top: 20px;
+}

@@ -1,0 +1,69 @@
+/**
+ * @copyright Dorian Thivolle
+ * @license MIT
+ * @see https://github.com/NoxFly/angular-dotnet-graphql
+ */
+
+:root {
+    /* project colors */
+
+    --color-primary: #512bd4;
+    --color-primary-tint: #6444db;
+    --color-primary-shade: #3f22a7;
+    --color-primary-contrast: #FFFFFF;
+
+    --color-secondary: #f42275;
+    --color-secondary-tint: #e9508d;
+    --color-secondary-shade: #be1c5d;
+    --color-secondary-contrast: #FFFFFF;
+
+    --color-tertiary: #e535ab;
+    --color-tertiary-tint: #e962bc;
+    --color-tertiary-shade: #aa247d;
+    --color-tertiary-contrast: #FFFFFF;
+
+    /* generic colors */
+
+    --color-light: #FFFFFF;
+    --color-light-tint: #EFEFEF;
+    --color-light-shade: #d5d5d5;
+    --color-light-contrast: #000000;
+
+    --color-medium: #707070;
+    --color-medium-tint: #ADADAD;
+    --color-medium-shade: #5A5A5A;
+    --color-medium-contrast: #FFFFFF;
+
+    --color-dark: #000000;
+    --color-dark-tint: #1A1A1A;
+    --color-dark-shade: #0D0D0D;
+    --color-dark-contrast: #FFFFFF;
+
+    --color-danger: #ba3a3a;
+    --color-danger-tint: #cf5858;
+    --color-danger-shade: #8d2525;
+    --color-danger-contrast: #FFFFFF;
+
+    --color-warning: #e6832a;
+    --color-warning-tint: #e28b3f;
+    --color-warning-shade: #cd701f;
+    --color-warning-contrast: #FFFFFF;
+
+    --color-success: #129435;
+    --color-success-tint: #1aa63f;
+    --color-success-shade: #0f7a2b;
+    --color-success-contrast: #FFFFFF;
+
+    /*  */
+
+    --font-family: 'OpenSans', sans-serif;
+
+    --background-color: var(--color-light);
+    --background-color-tint: var(--color-light-tint);
+
+    --text-color: var(--color-dark);
+    --text-color-secondary: var(--color-medium);
+
+    --border-radius: 5px;
+    --navbar-height: 60px;
+}

@@ -1,0 +1,8 @@
+<!--
+    @copyright Dorian Thivolle
+    @license MIT
+    @see https://github.com/NoxFly
+-->
+
+<span class="icon icon-svg" [innerHTML]="content() | sanitize: 'html'" *ngIf="isSVG()"></span>
+<span class="icon icon-image" [attr.style.--icon-url]="'url(' + src + ')'" *ngIf="isImage()"></span>

@@ -1,0 +1,83 @@
+/**
+ * @copyright Dorian Thivolle
+ * @license MIT
+ * @see https://github.com/NoxFly/angular-dotnet-graphql
+ */
+
+@use 'src/theme/mixins.scss' as *;
+
+input {
+    background: var(--background-color-tint);
+    border: 1px solid transparent;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+
+    &:active,
+    &:focus {
+        outline: 1px solid var(--color-dark);
+        border-color: var(--background-color);
+    }
+}
+
+textarea {
+    background: var(--background-color-tint);
+    border: 1px solid transparent;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    resize: vertical;
+
+    &:active,
+    &:focus {
+        outline: 1px solid var(--color-dark);
+        border-color: var(--background-color);
+    }
+}
+
+select {
+    background: var(--background-color-tint);
+    color: var(--text-color);
+    border: 1px solid transparent;
+    padding: 6px 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    min-width: 150px;
+
+    &:active,
+    &:focus {
+        outline: 1px solid var(--color-dark);
+        border-color: var(--background-color);
+    }
+
+    option {
+        background: var(--background-color-tint);
+        color: var(--text-color);
+    }
+}
+
+button {
+    background: var(--color-primary);
+    color: var(--color-primary-contrast);
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    user-select: none;
+    border: 1px solid transparent;
+
+    &:hover {
+        background: var(--color-primary-tint);
+    }
+
+    &:active {
+        background: var(--color-primary-shade);
+    }
+
+    &:focus,
+    &:active {
+        outline: 1px solid var(--color-dark);
+        border-color: var(--background-color);
+    }
+}

@@ -1,0 +1,28 @@
+<!--
+    @copyright Dorian Thivolle
+    @license MIT
+    @see https://github.com/NoxFly
+-->
+
+<label [for]="id" *ngIf="label()">{{ label() }}</label>
+
+<div>
+    <input
+        [id]="id"
+        [type]="type()"
+        [disabled]="_disabled()"
+        [placeholder]="placeholder()"
+        [pattern]="pattern()"
+        [autocomplete]="autocomplete()"
+        (change)="handleInput($event)"
+        (focus)="handleFocus()"
+        (blur)="handleBlur()"
+        #input/>
+
+    <span *ngIf="type() === 'radio' || type() === 'checkbox'"></span>
+
+    <ui-icon
+        src="assets/svg/eye-fill.svg"
+        (click)="togglePasswordVisibility()"
+        *ngIf="type() === 'password' && !disabled() && togglePassword()"></ui-icon>
+</div>

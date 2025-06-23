@@ -1,0 +1,33 @@
+<article>
+    <img src="assets/images/logo-app.png" id="app-logo" alt="Logo App"/>
+
+    <h2>Connexion</h2>
+
+    <form [formGroup]="form" novalidate (ngSubmit)="attemptLogin()">
+        <input type="hidden" name="email" formControlName="email" value=""/>
+
+        <ui-input
+            formControlName="id"
+            label="Identifiant"
+            type="text"
+            placeholder="Identifiant"
+            autocomplete="username"
+            enterkeyhint="next"
+            (keydown.enter)="focusPassword()"></ui-input>
+
+        <ui-input
+            formControlName="password"
+            label="Mot de passe"
+            type="password"
+            placeholder="Mot de passe"
+            autocomplete="current-password"
+            enterkeyhint="go"
+            [togglePassword]="true"
+            #passwordInput>
+        </ui-input>
+
+        <div class="form-actions">
+            <button type="submit">Connexion</button>
+        </div>
+    </form>
+</article>

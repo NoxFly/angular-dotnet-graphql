@@ -1,0 +1,25 @@
+/**
+ * @copyright Dorian Thivolle
+ * @license MIT
+ * @see https://github.com/NoxFly/angular-dotnet-graphql
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    font-size: 16px;
+}
+
+@media screen and (max-width: 600px) {
+    html, body {
+        font-size: 14px;
+    }
+}

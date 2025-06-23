@@ -1,0 +1,25 @@
+/**
+ * @copyright Dorian Thivolle
+ * @license MIT
+ * @see https://github.com/NoxFly/angular-dotnet-graphql
+ */
+
+ui-loading {
+    --loading-bg: var(--background-color);
+    color: var(--color-medium);
+    transition: opacity .3s;
+
+    img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        margin-bottom: 20px;
+        display: block;
+        transition: opacity .2s, transform .2s;
+
+        @starting-style {
+            opacity: 0;
+            transform: scale(.7);
+        }
+    }
+}

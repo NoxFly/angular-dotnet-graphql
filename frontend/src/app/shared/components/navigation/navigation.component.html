@@ -1,0 +1,30 @@
+<nav class="main-nav">
+    <div class="nav-actions">
+        <div>
+            <button (click)="goBack()" *ngIf="backButton()">
+                <ui-icon src="assets/svg/arrow-back.svg"></ui-icon>
+            </button>
+
+            <ng-content></ng-content>
+        </div>
+
+        <div>
+            <figure id="app-logo" (click)="goToHomePage()"></figure>
+        </div>
+
+        <div>
+            <button (click)="toggleProfileMenu()">
+                <ui-icon src="assets/svg/user.svg"></ui-icon>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div id="profile-menu" [class]="{ hidden: !isProfileMenuOpen() }">
+    <ul>
+        <li (click)="logout()">
+            <ui-icon src="assets/svg/logout.svg"></ui-icon>
+            Se déconnecter
+        </li>
+    </ul>
+</div>
