@@ -19,12 +19,18 @@ public class RealmDatabaseService
     private readonly Realm _realm;
     private Transaction? _transaction;
     private readonly ILogger<RealmDatabaseService> _logger;
+    private readonly IHostEnvironment _env;
 
     // ---
 
-    public RealmDatabaseService(IOptions<AppSettings> settings, ILogger<RealmDatabaseService> logger)
+    public RealmDatabaseService(
+        IOptions<AppSettings> settings,
+        ILogger<RealmDatabaseService> logger,
+        IHostEnvironment hostEnvironment
+    )
     {
         _logger = logger;
+        _env = hostEnvironment;
         _realm = Realm.GetInstance(GetConfig(settings.Value));
     }
 
@@ -32,16 +38,19 @@ public class RealmDatabaseService
 
     private RealmConfiguration GetConfig(AppSettings settings)
     {
-#if DEBUG
-        var dir = Path.Combine(AppContext.BaseDirectory, "data");
-#else
-        var dir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-#endif
+        string? dir;
 
-        // Set the path to the Realm database file
+        if (_env.IsDevelopment())
+            dir = Path.Combine(AppContext.BaseDirectory, "data");
+        else
+            dir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+
         var path = Path.Combine(dir, "app.realm");
 
         _logger.LogDebug("Realm database path: {0}", path);
+
+        if (!Directory.Exists(dir))
+            Directory.CreateDirectory(dir);
 
         return new RealmConfiguration(path)
         {
