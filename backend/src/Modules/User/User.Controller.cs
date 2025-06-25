@@ -9,7 +9,6 @@ using Core.Models;
 using Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Modules.User.Models;
 
 namespace Modules.User;
 
@@ -21,12 +20,12 @@ public class UserController(UserService userService) : Controller
     private readonly UserService _userService = userService;
 
     [HttpGet("me")]
-    [ProducesResponseType(typeof(UserDto), 200)]
+    [ProducesResponseType(typeof(User), 200)]
     [ProducesResponseType(typeof(ResponseError), 401)]
     [ProducesResponseType(typeof(ResponseError), 403)]
     [ProducesResponseType(typeof(ResponseError), 500)]
-    public async Task<UserDto?> Me()
+    public User? Me()
     {
-        return await _userService.FindOneById(User.GetId());
+        return _userService.FindOneById(User.GetId());
     }
 }

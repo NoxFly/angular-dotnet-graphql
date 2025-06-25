@@ -14,7 +14,7 @@ namespace Core.Services;
 [Injectable(ServiceLifetime.Transient)]
 public class RealmDatabaseService
 {
-    private static readonly ulong CurrentSchemaVersion = 1;
+    private static readonly ulong CurrentSchemaVersion = 2;
 
     private readonly Realm _realm;
     private Transaction? _transaction;
@@ -41,11 +41,11 @@ public class RealmDatabaseService
         string? dir;
 
         if (_env.IsDevelopment())
-            dir = Path.Combine(AppContext.BaseDirectory, "data");
+            dir = System.IO.Path.Combine(AppContext.BaseDirectory, "data");
         else
             dir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
-        var path = Path.Combine(dir, "app.realm");
+        var path = System.IO.Path.Combine(dir, "app.realm");
 
         _logger.LogDebug("Realm database path: {0}", path);
 

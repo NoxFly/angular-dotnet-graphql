@@ -78,6 +78,16 @@ builder.Services.AddAuthorizationBuilder()
     .AddPolicy(Role.User, policy => policy.RequireAuthenticatedUser())
     .AddPolicy(Role.Admin, policy => policy.RequireAuthenticatedUser().RequireRole(Role.Admin));
 
+// ############################## GraphQL ##############################
+
+
+var gqlServer = builder.Services.AddGraphQLServer();
+
+gqlServer.AddQueryType<QueryType>();
+
+// use reflection to find all [QueryType] and [MutationType] classes in the current assembly
+
+
 // ############################## SWAGGER ##############################
 if (isDevelopment)
 {
@@ -180,6 +190,9 @@ if(isDevelopment)
 #region App controllers
 
 // ############################## App controllers ##############################
+
+app.MapGraphQL();
+    // .RequireAuthorization();
 
 app.MapControllers();
 app.MapFallbackToFile("/index.html"); // Serve Angular static files

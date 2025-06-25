@@ -6,7 +6,6 @@
 
 using Attributes;
 using Core.Helpers.Crypto;
-using Modules.Auth.Dto;
 using Modules.User;
 using Core.Models;
 using Core.Helpers;
@@ -19,21 +18,15 @@ public class AuthService(UserService userService)
 {
     private readonly UserService _userService = userService;
 
-    public async Task<AuthResponse> Login(CredentialsBody credentials, HttpContext httpContext)
+    public AuthResponse Login(CredentialsBody credentials, HttpContext httpContext)
     {
         credentials.Password = RSAHelper.Decrypt(credentials.Password);
         credentials.Password = SHAHelper.Hash(credentials.Password);
         credentials.Password = credentials.Password.ToUpper();
 
-        var user = await _userService.FindOneById(credentials.Id);
+        var user = _userService.FindOneByIdSchema(credentials.Id);
 
-        if (user == null)
-            throw new BadRequestException("Invalid credentials");
-
-        // dev
-        user.Password = credentials.Password;
-
-        if(user.Password != credentials.Password)
+        if (user == null || user.Password != credentials.Password)
             throw new BadRequestException("Invalid credentials");
 
         string[] roles = ["User"];
@@ -52,7 +45,6 @@ public class AuthService(UserService userService)
         {
             AccessToken = jwtToken,
             ExpiresAt = expiresAt,
-            User = user
         };
 
         return response;

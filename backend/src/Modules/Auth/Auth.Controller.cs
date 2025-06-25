@@ -8,7 +8,6 @@ using Attributes;
 using Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Modules.Auth.Dto;
 
 namespace Modules.Auth;
 
@@ -23,9 +22,9 @@ public class AuthController(AuthService authService) : Controller
     [ProducesResponseType(typeof(ResponseError), 400)]
     [ProducesResponseType(typeof(ResponseError), 500)]
     [ProducesResponseType(typeof(ResponseError), 503)]
-    public async Task<AuthResponse> Login([FromBody] CredentialsBody credentials)
+    public AuthResponse Login([FromBody] CredentialsBody credentials)
     {
-        return await _authService.Login(credentials, HttpContext);
+        return _authService.Login(credentials, HttpContext);
     }
 
     [HttpPost("verify")]

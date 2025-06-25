@@ -6,7 +6,6 @@
 
 using Attributes;
 using Core.Services;
-using Modules.User.Models;
 
 namespace Modules.User;
 
@@ -16,18 +15,33 @@ public class UserService(RealmDatabaseService db)
 {
     private readonly RealmDatabaseService _db = db;
 
-    public async Task<UserDto?> FindOneById(string id)
+    public UserSchema? FindOneByIdSchema(string id)
     {
-        var user = new UserDto
+        return _db.Find<UserSchema>(id);
+    }
+
+    public User? FindOneById(string id)
+    {
+        var user = _db.Find<UserSchema>(id);
+
+        if (user == null)
+            return null;
+
+        return new User
         {
-            Id = id,
-            IsAdmin = false,
-            Name = "John Doe",
-            Password = "hashed-password",
+            Id = user.Id,
+            FullName = $"{user.FirstName} {user.LastName}",
+            IsAdmin = user.IsAdmin
         };
-
-        await Task.Delay(100); // Simulate async operation
-
-        return user;
+    }
+    
+    public IQueryable<User> GetUsers()
+    {
+        return _db.GetAll<UserSchema>().ToList().Select(user => new User
+        {
+            Id = user.Id,
+            FullName = $"{user.FirstName} {user.LastName}",
+            IsAdmin = user.IsAdmin
+        }).AsQueryable();
     }
 }

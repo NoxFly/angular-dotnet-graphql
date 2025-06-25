@@ -6,17 +6,19 @@
 
 using Realms;
 
-namespace Modules.User.Models;
+namespace Modules.User;
 
 [MapTo("User")]
 public class UserSchema : RealmObject
 {
     [PrimaryKey]
-    public required string Id { get; set; }
+    public string Id { get; set; } = default!;
 
-    public required string Name { get; set; }
+    public string FirstName { get; set; } = default!;
 
-    public required string Password { get; set; }
+    public string LastName { get; set; } = default!;
 
-    public required bool IsAdmin { get; set; }
+    public string Password { get; set; } = default!;
+
+    public bool IsAdmin { get; set; }
 }

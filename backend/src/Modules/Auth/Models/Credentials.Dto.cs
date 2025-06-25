@@ -4,9 +4,9 @@
  * @see https://github.com/NoxFly/angular-dotnet-graphql
  */
 
-using Modules.User.Models;
+// using Modules.User.Models;
 
-namespace Modules.Auth.Dto;
+namespace Modules.Auth;
 
 public class CredentialsBody
 {
@@ -18,5 +18,5 @@ public class AuthResponse
 {
     public required string AccessToken { get; set; }
     public required string ExpiresAt { get; set; }
-    public required UserDto User { get; set; }
+    // public required User.Models.User User { get; set; }
 }
