@@ -25,7 +25,6 @@ public class JWTHelper
             new(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64)
         };
         claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
-        claims.Add(new Claim(ClaimTypes.System, userId));
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
